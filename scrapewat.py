@@ -34,7 +34,7 @@ def spacecheck(usr):
         message = "There are " + str(diff) + " spots open in " + usr.coursestring
         print(message)
         #sendmail.emailNotification(emailAddr,courseString)
-        texter.sendtext(usr.phone,message)
+        #texter.sendtext(usr.phone,message)
         usr.space = True
     elif diff == 0:
         print("No spots currently open in " + usr.coursestring +", will try again later")
