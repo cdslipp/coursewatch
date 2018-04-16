@@ -1,22 +1,11 @@
-import MySQLdb
+from pymongo import MongoClient
+import datetime
 
-def connect():
-    conn = MySQLdb.connect(host= "cdslipp.mysql.pythonanywhere-services.com",
-                  user="cdslipp",
-                  passwd="juniper123",
-                  db="cdslipp$cwdb")
-    return conn
-
-def saveForm(courCode,courNum,section,emailAddr):
-    conn = MySQLdb.connect(host= "cdslipp.mysql.pythonanywhere-services.com",
-                  user="cdslipp",
-                  passwd="juniper123",
-                  db="cdslipp$cwdb")
-
-    x = conn.cursor()
-
-    sql = "INSERT INTO CourseWatchData (email, courCode, courNum, section) VALUES ( ' " + emailAddr + "', '" + courCode + "', '" + courNum + "', '" + section + "');"
-
-    x.execute(sql)
-    conn.commit()
-    conn.close()
+def savetoDB(usr):
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client.coursewatch
+    usrtable = db.usertable
+    userinfo = {key:value for key, value in usr.__dict__.items() if not key.startswith('__') and not callable(key)}
+    userinfo['date'] = datetime.datetime.utcnow()
+    print(userinfo)
+    usrtable.insert_one(userinfo).inserted_id

@@ -35,4 +35,4 @@ def functiontest():
     scrapewat.spacecheck(usr)
     usrtable.savetoDB(usr)
 
-functiontest()
+#functiontest()
