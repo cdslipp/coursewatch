@@ -17,13 +17,14 @@ class UserBlock:
         self.coursestring = None
         self.email = None
         self.phone = None
+        self.loginCode = None
         self.space = True
 
 def functiontest():
     print("Testing backend app logic")
     usr = UserBlock()
-    usr.code = "ECON"
-    usr.num = "101"
+    usr.code = "CS"
+    usr.num = "115"
     usr.sec = "001"
     usr.phone = "+15064250651"
     print("Displaying available terms: ")
@@ -35,4 +36,4 @@ def functiontest():
     scrapewat.spacecheck(usr)
     usrtable.savetoDB(usr)
 
-#functiontest()
+functiontest()

@@ -7,7 +7,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>CourseWatch</title>
   </head>
   <body>
@@ -15,9 +14,14 @@
       <div class="page-header">
           <h1>Waterloo CourseWatch</h1>
       </div>
-      <p>Waterloo CourseWatch allows you to easily notify yourself when you're trying to get into a specific course section. You can use SMS or email, select below:</p>
-      <a class="btn btn-primary">EMAIL</button>
-      <a class="btn btn-primary">TEXT</button>
+      <p>Waterloo CourseWatch allows you to easily notify yourself when you're trying to get into a specific course section.
+        We currently only use SMS for notification purposes.</p>
+
+        <form class="form-group">
+          <label for="phone">Phone Number:</label><br/>
+          <input id="phone" placeholder="5558881234"type="tel" pattern="^\{10}$" required >
+          <input type="submit" value="Submit" class="btn-primary">
+        </form>
 
     </div>
 
